@@ -30,12 +30,15 @@ values."
           git-magit-status-fullscreen t)
      ;; markdown
      ;; org
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
-     ;; spell-checking
+     (shell :variables
+            shell-default-height 30
+            shell-default-position 'bottom)
+     spell-checking
      ;; syntax-checking
      ;; version-control
+     javascript
+     typescript
+     dockerfile
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
