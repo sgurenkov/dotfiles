@@ -37,6 +37,7 @@ values."
      spell-checking
      syntax-checking
      ;; version-control
+     ranger
      javascript
      typescript
      dockerfile
