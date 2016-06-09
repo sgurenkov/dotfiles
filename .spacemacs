@@ -23,18 +23,19 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style)) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ;; auto-completion
+     auto-completion
      ;; better-defaults
      emacs-lisp
      (git :variables
           git-magit-status-fullscreen t)
-     ;; markdown
-     ;; org
+     markdown
+     org
      (shell :variables
+            shell-default-shell 'eshell
             shell-default-height 30
             shell-default-position 'bottom)
      spell-checking
-     ;; syntax-checking
+     syntax-checking
      ;; version-control
      javascript
      typescript
@@ -99,10 +100,10 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-dark
+   dotspacemacs-themes '(solarized-dark
+                         spacemacs-dark
                          spacemacs-light
                          solarized-light
-                         solarized-dark
                          leuven
                          monokai
                          zenburn)
@@ -116,7 +117,7 @@ values."
                                :width normal
                                :powerline-scale 1.1)
    ;; The leader key
-   dotspacemacs-leader-key "SPC"
+   dotspacemacs-leader-key ","
    ;; The leader key accessible in `emacs state' and `insert state'
    ;; (default "M-m")
    dotspacemacs-emacs-leader-key "M-m"
@@ -240,7 +241,9 @@ values."
 (defun dotspacemacs/user-init ())
 
 (defun dotspacemacs/user-config ()
-  (setq-default line-spacing 7))
+  (setq-default
+   ;; custom line spacing
+   line-spacing 8))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
