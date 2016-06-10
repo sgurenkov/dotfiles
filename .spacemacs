@@ -243,9 +243,8 @@ values."
 (defun dotspacemacs/user-init ())
 
 (defun dotspacemacs/user-config ()
-  (setq-default
-   ;; custom line spacing
-   line-spacing 8))
+  (setq-default line-spacing 8)
+  (setq powerline-default-separator nil))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
