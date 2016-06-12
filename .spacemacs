@@ -24,24 +24,32 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      auto-completion
-     ;; better-defaults
+     ;; lisp
      emacs-lisp
+     clojure
+     ;; vcs
      (git :variables
           git-magit-status-fullscreen t)
-     markdown
+     ;; documents
      org
+     markdown
+     ;; linting
+     spell-checking
+     syntax-checking
+     ;; file manager
+     ranger
+     ;; frontend
+     html
+     javascript
+     typescript
+     ;; configuration
+     yaml
+     dockerfile
      (shell :variables
             shell-default-shell 'eshell
             shell-default-height 30
             shell-default-position 'bottom)
-     spell-checking
-     syntax-checking
-     ;; version-control
-     ranger
-     javascript
-     typescript
-     dockerfile
-     )
+     restclient)
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
@@ -240,9 +248,9 @@ values."
    dotspacemacs-whitespace-cleanup nil
    ))
 
-(defun dotspacemacs/user-init ())
-
+;; (defun dotspacemacs/user-init ())
 (defun dotspacemacs/user-config ()
+  (setq magit-repository-directories '("~/code/"))
   (setq-default line-spacing 8)
   (setq powerline-default-separator nil)
   (spaceline-compile))
