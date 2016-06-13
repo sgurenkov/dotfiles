@@ -87,6 +87,7 @@ alias dockerenv="eval \$(docker-machine env dev)"
 alias gimletssh="ssh -t stangurenkov@198.61.241.108 \ ssh -t 10.210.195.248"
 alias martini="OLIVE=//localhost:8001/olive gulp default --api-env=dsw010434"
 alias simpleServer="python -m SimpleHTTPServer"
+alias hqeagle="ssh stan.gurenkov@hqeagle01.hqtest.tst"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session
 
