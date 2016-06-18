@@ -127,7 +127,7 @@ values."
                                :width normal
                                :powerline-scale 1.1)
    ;; The leader key
-   dotspacemacs-leader-key ","
+   dotspacemacs-leader-key "SPC"
    ;; The leader key accessible in `emacs state' and `insert state'
    ;; (default "M-m")
    dotspacemacs-emacs-leader-key "M-m"
@@ -250,6 +250,16 @@ values."
 
 ;; (defun dotspacemacs/user-init ())
 (defun dotspacemacs/user-config ()
+  ;; ranger
+  (setq ranger-override-dired t)
+  (setq ranger-cleanup-on-disable t)
+  (setq ranger-show-dotfiles t)
+  (setq ranger-parent-depth 0)
+  (setq ranger-max-parent-width 0.4)
+  (setq ranger-excluded-extensions '("mkv" "iso" "mp4"))
+  (setq ranger-max-preview-size 8)
+  (setq ranger-dont-show-binary t)
+  ;; magit
   (setq magit-repository-directories '("~/code/"))
   (setq-default line-spacing 8)
   (setq powerline-default-separator nil)
@@ -257,3 +267,16 @@ values."
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(safe-local-variable-values (quote ((docker-image-name . "docusign/radmin")))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
