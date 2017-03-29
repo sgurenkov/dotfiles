@@ -55,6 +55,9 @@ plugins=(git)
 
 export PATH="./node_modules/.bin:./node_modules/.bin:./node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin"
+export ANDROID_HOME="/Users/${USER}/Library/Android/sdk"
+export PATH="$PATH:${ANDROID_HOME}/platform-tools/"
+export PATH="$PATH:/Users/${USER}/Library/Python/2.7/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -85,9 +88,9 @@ alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias dockerenv="eval \$(docker-machine env dev)"
 alias gimletssh="ssh -t stangurenkov@198.61.241.108 \ ssh -t 10.210.195.248"
-alias martini="OLIVE=//localhost:8001/olive gulp default --api-env=dsw010434"
+alias martini="nvm use; API_ENV=dsw010434 ./node_modules/gulp/bin/gulp.js default"
 alias simpleServer="python -m SimpleHTTPServer"
-alias hqeagle="ssh stan.gurenkov@hqeagle01.hqtest.tst"
+alias hqeagle="ssh vagrant@10.13.62.40"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session
 
