@@ -57,6 +57,7 @@ export PATH="./node_modules/.bin:./node_modules/.bin:./node_modules/.bin:/usr/lo
 export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin"
 export ANDROID_HOME="/Users/${USER}/Library/Android/sdk"
 export PATH="$PATH:${ANDROID_HOME}/platform-tools/"
+export PATH="$PATH:${ANDROID_HOME}/tools/"
 export PATH="$PATH:/Users/${USER}/Library/Python/2.7/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -91,6 +92,8 @@ alias gimletssh="ssh -t stangurenkov@198.61.241.108 \ ssh -t 10.210.195.248"
 alias martini="nvm use; API_ENV=dsw010434 ./node_modules/gulp/bin/gulp.js default"
 alias simpleServer="python -m SimpleHTTPServer"
 alias hqeagle="ssh vagrant@10.13.62.40"
+#run from ~/Library/Android/sdk/tools
+alias emulator="./emulator -use-system-libs -avd Nexus_6P_API_25 -http-proxy http://127.0.0.1:3333"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session
 
