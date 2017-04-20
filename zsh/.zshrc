@@ -1,5 +1,5 @@
 #Path to your oh-my-zsh installation.
-export ZSH=/Users/stan.gurenkov/.oh-my-zsh
+export ZSH=/Users/stan.gurenkov/.config/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -68,9 +68,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+  export EDITOR='nvim'
 else
-  export EDITOR='mvim'
+  export EDITOR='nano'
 fi
 
 # Compilation flags
@@ -92,11 +92,14 @@ alias gimletssh="ssh -t stangurenkov@198.61.241.108 \ ssh -t 10.210.195.248"
 alias martini="nvm use; API_ENV=dsw010434 ./node_modules/gulp/bin/gulp.js default"
 alias simpleServer="python -m SimpleHTTPServer"
 alias hqeagle="ssh vagrant@10.13.62.40"
+alias vim="nvim"
+
 #run from ~/Library/Android/sdk/tools
 alias emulator="./emulator -use-system-libs -avd Nexus_6P_API_25 -http-proxy http://127.0.0.1:3333"
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session
-
 #NVM
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+. "/usr/local/opt/nvm/nvm.sh"
+#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

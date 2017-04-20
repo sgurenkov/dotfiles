@@ -1,8 +1,41 @@
-set nocompatible   " Disable vi-compatibility
-set t_Co=256
+" Dein plugin manager
+if &compatible
+  set nocompatible
+endif
+set runtimepath+=~/.config/nvim/dein/repos/github.com/Shougo/dein.vim
+if dein#load_state('~/.config/nvim/dein/repos/github.com/Shougo/dein.vim')
+  call dein#begin('~/.config/nvim/dein/plugins')
 
-colorscheme xoria256
-set guifont=menlo:h14
+  call dein#add('~/.config/nvim/dein/repos/github.com/Shougo/dein.vim')
+  " ctrlPvim
+  call dein#add('ctrlpvim/ctrlp.vim')
+  call dein#add('mhartington/oceanic-next')
+  " nerdtree
+  call dein#add('scrooloose/nerdtree')
+  " devicons
+  call dein#add('ryanoasis/vim-devicons')
+  let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
+  let g:webdevicons_conceal_nerdtree_brackets = 1
+
+  call dein#end()
+  call dein#save_state()
+endif
+
+filetype plugin indent on
+syntax enable
+" //Dein plugin manager
+
+" Disable arrow movement, set to resize panes
+nnoremap <Up>    :resize +2<CR>
+nnoremap <Down>  :resize -2<CR>
+nnoremap <Left>  :vertical resize +2<CR>
+nnoremap <Right> :vertical resize -2<CR>
+
+" UI
+colorscheme OceanicNext 
+if (has("termguicolors"))
+ set termguicolors
+endif
 set guioptions-=T " Removes top toolbar
 set guioptions-=r " Removes right hand scroll bar
 set go-=L " Removes left hand scroll bar
@@ -10,17 +43,18 @@ set linespace=15
 
 set showmode                    " always show what mode we're currently editing in
 set nowrap                      " don't wrap lines
-set tabstop=4                   " a tab is four spaces
+set tabstop=2                   " a tab is four spaces
 set smarttab
 set tags=tags
-set softtabstop=4               " when hitting <BS>, pretend like a tab is removed, even if spaces
+set softtabstop=2               " when hitting <BS>, pretend like a tab is removed, even if spaces
 set expandtab                   " expand tabs by default (overloadable per file type later)
-set shiftwidth=4                " number of spaces to use for autoindenting
+set shiftwidth=2                " number of spaces to use for autoindenting
 set shiftround                  " use multiple of shiftwidth when indenting with '<' and '>'
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode
 set autoindent                  " always set autoindenting on
 set copyindent                  " copy the previous indentation on autoindenting
 set number                      " always show line numbers
+set numberwidth=6
 set ignorecase                  " ignore case when searching
 set smartcase                   " ignore case if search pattern is all lowercase,
 set timeout timeoutlen=200 ttimeoutlen=100
@@ -60,7 +94,8 @@ nmap 25 :vertical resize 40<cr>
 nmap 50 <c-w>=
 nmap 75 :vertical resize 120<cr>
 
-nmap <C-b> :NERDTreeToggle<cr>
+nmap <F10> :NERDTreeToggle ~/code<cr>
+nmap <F9> :NERDTreeFind<cr>
 
 "Load the current buffer in Chrome
 nmap ,c :!open -a Google\ Chrome<cr>
@@ -78,11 +113,8 @@ nmap :bn :BufSurfForward<cr>
 highlight Search cterm=underline
 
 " Swap files out of the project root
-set backupdir=~/.vim/backup//
-set directory=~/.vim/swap//
-
-" Run PHPUnit tests
-map <Leader>t :!phpunit %<cr>
+set backupdir=~/.config/nvim/backup/
+set directory=~/.config/nvim/swap/
 
 " Easy motion stuff
 let g:EasyMotion_leader_key = '<Leader>'
@@ -105,38 +137,8 @@ command! H let @/=""
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
-" Abbreviations
-abbrev pft PHPUnit_Framework_TestCase
-
-abbrev gm !php artisan generate:model
-abbrev gc !php artisan generate:controller
-abbrev gmig !php artisan generate:migration
-
-" Auto-remove trailing spaces
-autocmd BufWritePre *.php :%s/\s\+$//e
-
 " Edit todo list for project
 nmap ,todo :e todo.txt<cr>
-
-" Laravel framework commons
-nmap <leader>lr :e app/routes.php<cr>
-nmap <leader>lca :e app/config/app.php<cr>81Gf(%O
-nmap <leader>lcd :e app/config/database.php<cr>
-nmap <leader>lc :e composer.json<cr>
-
-" Concept - load underlying class for Laravel
-function! FacadeLookup()
-    let facade = input('Facade Name: ')
-    let classes = {
-\       'Form': 'Html/FormBuilder.php',
-\       'Html': 'Html/HtmlBuilder.php',
-\       'File': 'Filesystem/Filesystem.php',
-\       'Eloquent': 'Database/Eloquent/Model.php'
-\   }
-
-    execute ":edit vendor/laravel/framework/src/Illuminate/" . classes[facade]
-endfunction
-nmap ,lf :call FacadeLookup()<cr>
 
 " CtrlP Stuff
 
@@ -145,6 +147,7 @@ map <D-p> :CtrlP<cr>
 map <C-r> :CtrlPBufTag<cr>
 
 " I don't want to pull up these folders/files when calling CtrlP
+set wildignore+=*/node_modules/*
 set wildignore+=*/vendor/**
 set wildignore+=*/public/forum/**
 
@@ -154,37 +157,3 @@ nmap sp :split<cr>
 
 " Create/edit file in the current directory
 nmap :ed :edit %:p:h/
-
-" Prepare a new PHP class
-function! Class()
-    let name = input('Class name? ')
-    let namespace = input('Any Namespace? ')
-
-    if strlen(namespace)
-        exec 'normal i<?php namespace ' . namespace . ';
-    else
-        exec 'normal i<?php
-    endif
-
-    " Open class
-    exec 'normal iclass ' . name . ' {^M}^[O^['
-
-    exec 'normal i^M    public function __construct()^M{^M ^M}^['
-endfunction
-nmap ,1  :call Class()<cr>
-
-" Add a new dependency to a PHP class
-function! AddDependency()
-    let dependency = input('Var Name: ')
-    let namespace = input('Class Path: ')
-
-    let segments = split(namespace, '\')
-    let typehint = segments[-1]
-
-    exec 'normal gg/construct^M:H^Mf)i, ' . typehint . ' $' . dependency . '^[/}^>O$this->^[a' . dependency . ' = $' . dependency . ';^[?{^MkOprotected $' . dependency . ';^M^[?{^MOuse ' . namespace . ';^M^['
-
-    " Remove opening comma if there is only one dependency
-    exec 'normal :%s/(, /(/g
-'
-endfunction
-nmap ,2  :call AddDependency()<cr>
