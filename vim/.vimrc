@@ -1,30 +1,20 @@
-" Dein plugin manager
-if &compatible
-  set nocompatible
-endif
-set runtimepath+=~/.config/nvim/dein/repos/github.com/Shougo/dein.vim
-if dein#load_state('~/.config/nvim/dein/repos/github.com/Shougo/dein.vim')
-  call dein#begin('~/.config/nvim/dein/plugins')
-
-  call dein#add('~/.config/nvim/dein/repos/github.com/Shougo/dein.vim')
-  " color scheme
-  call dein#add('mhartington/oceanic-next')
-  " ctrlPvim
-  call dein#add('ctrlpvim/ctrlp.vim')
-  " nerdtree
-  call dein#add('scrooloose/nerdtree')
-  " devicons
-  let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
-  let g:webdevicons_conceal_nerdtree_brackets = 1
-  call dein#add('ryanoasis/vim-devicons')
-
-  call dein#end()
-  call dein#save_state()
-endif
+" Vim-Plug plugin manager
+" Specify a directory for plugins
+call plug#begin('~/.local/share/nvim/plugged')
+Plug 'mhartington/oceanic-next' "color scheme
+Plug 'scrooloose/nerdtree' "file tree
+Plug 'ryanoasis/vim-devicons' "file icons
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+Plug 'christoomey/vim-tmux-navigator'
+" Initialize plugin system
+call plug#end()
 
 filetype plugin indent on
 syntax enable
-" //Dein plugin manager
+
+if exists('g:loaded_webdevicons')
+  call webdevicons#refresh()
+endif
 
 " Disable arrow movement, set to resize panes
 nnoremap <Up>    :resize +2<CR>
@@ -56,7 +46,11 @@ set smartcase                   " ignore case if search pattern is all lowercase
 set timeout timeoutlen=200 ttimeoutlen=100
 set visualbell           " don't beep
 set noerrorbells         " don't beep
-set autowrite  "Save on buffer switch
+set mouse=a
+
+" autosave
+" Write all buffers before navigating from Vim to tmux pane
+let g:tmux_navigator_save_on_switch = 2
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
@@ -76,10 +70,10 @@ nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 nnoremap ,r :so $MYVIMRC<CR>
 
 "easier window navigation
-nmap <C-h> :wincmd h<CR>
-nmap <C-j> :wincmd j<CR>
-nmap <C-k> :wincmd k<CR>
-nmap <C-l> :wincmd l<CR>
+"nmap <C-h> :wincmd h<CR>
+"nmap <C-j> :wincmd j<CR>
+"nmap <C-k> :wincmd k<CR>
+"nmap <C-l> :wincmd l<CR>
 
 " cycle buffers
 :nnoremap <Tab> :bnext<CR>
@@ -101,16 +95,8 @@ set showcmd
 set backupdir=~/tmp/nvim/backup/
 set directory=~/tmp/nvim/swap/
 
-" CtrlP Stuff
-
-" Familiar commands for file/symbol browsing
-map <D-p> :CtrlP<cr>
-map <C-r> :CtrlPBufer<cr>
-
-" I don't want to pull up these folders/files when calling CtrlP
-set wildignore+=*/node_modules/*
-set wildignore+=*/vendor/**
-set wildignore+=*/public/forum/**
+" Fuzzy Finder
+nmap <c-p> :FZF<cr>
 
 " Open splits
 nmap vs :vsplit<cr>
