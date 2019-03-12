@@ -6,6 +6,7 @@ Plug 'scrooloose/nerdtree' "file tree
 Plug 'ryanoasis/vim-devicons' "file icons
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'tpope/vim-fugitive'
 " Initialize plugin system
 call plug#end()
 

@@ -30,7 +30,7 @@ set -g visual-activity off
 # Rather than constraining window size to the maximum size of any client
 # connected to the *session*, constrain window size to the maximum size of any
 # client connected to *that window*. Much more reasonable.
-setw -g aggressive-resize on
+#setw -g aggressive-resize on
 
 # make window/pane index start with 1
 set -g base-index 1
@@ -53,7 +53,7 @@ bind n new-window
 
 # clean history (bind to cmd+k in iterm)
 unbind c
-bind c send-keys C-l \; clear-history
+bind-key c send-keys -R \; clear-history
 
 # split window and fix path for tmux 1.9
 bind \ split-window -h -c "#{pane_current_path}"
@@ -91,10 +91,7 @@ unbind p
 bind p paste-buffer
 bind-key -T copy-mode-vi 'v' send -X begin-selection
 bind-key -T copy-mode-vi 'y' send -X copy-selection
-
-# Buffers to/from Mac clipboard, yay tmux book from pragprog
-bind C-c run "tmux save-buffer - | reattach-to-user-namespace pbcopy"
-bind C-v run "tmux set-buffer $(reattach-to-user-namespace pbpaste); tmux paste-buffer"
+bind-key -T copy-mode-vi 'y' send -X copy-pipe pbcopy
 
 # remap clean-history since vi-navigation occupies c-l
 bind C-l send-keys 'C-l'
@@ -102,4 +99,9 @@ bind C-l send-keys 'C-l'
 ##############################
 ### Color & Style Settings ###
 ##############################
-source ~/.dotfiles/tmux/theme.sh
+# source ~/.dotfiles/tmux/theme.sh
+
+#############################
+### Plugins               ###
+#############################
+run-shell ~/.config/tmux/tmux-resurrect/resurrect.tmux
