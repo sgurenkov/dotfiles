@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #unbind all the keys first
-#unbind-key -a
+# unbind-key -a
 
 # enable mouse
 set-option -g mouse on
@@ -13,6 +13,7 @@ bind C-a send-prefix
 bind-key a send-prefix # for nested tmux sessions
 
 # set correct colorscheme
+set-option -g default-terminal "screen-256color"
 set -ga terminal-overrides ",xterm-256color:Tc"
 
 # set esc timeout to 0 for quickly switch modes in vim
@@ -56,7 +57,7 @@ unbind c
 bind-key c send-keys -R \; clear-history
 
 # split window and fix path for tmux 1.9
-bind \ split-window -h -c "#{pane_current_path}"
+bind \\ split-window -h -c "#{pane_current_path}"
 bind - split-window -v -c "#{pane_current_path}"
 
 # synchronize all panes in a window
@@ -70,7 +71,7 @@ bind-key -n C-h if-shell "$is_vim" "send-keys C-h"  "select-pane -L"
 bind-key -n C-j if-shell "$is_vim" "send-keys C-j"  "select-pane -D"
 bind-key -n C-k if-shell "$is_vim" "send-keys C-k"  "select-pane -U"
 bind-key -n C-l if-shell "$is_vim" "send-keys C-l"  "select-pane -R"
-bind-key -n C-\ if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
+bind-key -n C-\\ if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
 
 # window cycling
 bind -r h select-window -t :-

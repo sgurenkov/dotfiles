@@ -91,20 +91,17 @@ fi
 # Example aliases
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
-alias martini="nvm use; API_ENV=dsw010434 yarn start"
 alias simpleServer="python -m SimpleHTTPServer"
-alias hqeagle="ssh vagrant@10.13.62.40"
 alias vim="nvim"
 alias gco="git checkout"
 alias gdb="git branch -D"
 alias tmx="tmux attach-session -t job"
-
-#run from ~/Library/Android/sdk/tools
-alias emulator="./emulator -avd Nexus_6P_API_25 -http-proxy http://127.0.0.1:3333"
+alias oni2='/Applications/Onivim2.app/Contents/MacOS/Oni2'
+alias n="nnn"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# fuzzy fineder
+# fuzzy finder
 [ -f ~/.dotfiles/zsh/.fzf.zsh ] && source ~/.dotfiles/zsh/.fzf.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -123,3 +120,7 @@ eval `fnm env --multi`
 # fnm
 export PATH=$HOME/.fnm:$PATH
 eval `fnm env --multi`
+
+# fnm
+export PATH=$HOME/.fnm:$PATH
+eval "`fnm env --multi`"
