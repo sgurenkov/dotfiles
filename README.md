@@ -1,6 +1,11 @@
-# fonts
-[Hasklig (with ligatures)](https://github.com/i-tu/Hasklig)
-Hasklug Nerd with icons for powerline etc.
+# Fonts
+[JatBrains Mono](https://www.jetbrains.com/lp/mono/)
 
-# Color
-Oceanic Next
+# Color scheme
+Molokai or Oceanic Next
+
+# File manager
+[vifm](https://vifm.info/)
+
+# Terminal
+[kitty](https://sw.kovidgoyal.net/kitty)
