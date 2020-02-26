@@ -1,5 +1,5 @@
 # Fonts
-[JatBrains Mono](https://www.jetbrains.com/lp/mono/)
+[JetBrains Mono](https://www.jetbrains.com/lp/mono/)
 
 # Color scheme
 Molokai or Oceanic Next
