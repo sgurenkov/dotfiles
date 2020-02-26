@@ -1,0 +1,38 @@
+#
+# Command aliases
+#
+
+alias ....='cd ../..'
+alias :e=vim
+alias :qa=exit
+alias :wq=exit
+alias cd..='cd ..'
+alias f='find . -name'
+alias g=git
+alias groot='cd $(git rev-parse --show-toplevel 2> /dev/null || echo -n ".")'
+alias h=history
+alias l='ls -F'
+alias ll='ls -laF'
+alias serve='python -m SimpleHTTPServer' # optional arg: port (defaults to 8000)
+alias v=vim
+alias fm=vifm
+
+# working with dotfiles in a bare git repo
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+if command -v nvim &> /dev/null; then
+  alias vim=nvim # Use `\vim` or `command vim` to get the real vim.
+fi
+
+# Mnemonic: "[G]rep"
+alias -g G="|grep"
+
+# Mnemonic: "[H]ead"
+alias -g H="|head"
+
+# Mnemonic: "[L]ess"
+alias -g L="|less"
+
+# Mnemonic: "[W]c"
+alias -g W="|wc -l"
+
