@@ -1,7 +1,7 @@
 # Dependencies
 * terminal [kitty](https://sw.kovidgoyal.net/kitty)
 * Shell [ZSH](http://zsh.sourceforge.net/)
-* ZSH config [OH-MY-ZSH](https://github.com/ohmyzsh/ohmyzs)
+* ZSH config [OH-MY-ZSH](https://ohmyz.sh/)
 * File manager [vifm](https://vifm.info/)
 
 
