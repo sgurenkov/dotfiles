@@ -11,6 +11,12 @@
 "                                 ░
 "
 syntax enable
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.local/share/nvim/plugged')
+Plug 'tomasr/molokai'
+call plug#end()
 
 " Disable arrow movement, set to resize panes
 nnoremap <Up>    :resize +1<CR>
@@ -74,19 +80,19 @@ autocmd TermOpen * startinsert " auto start terminal mode (type command)
 
 
 " Language Server
-packadd nvim-lsp
-lua require'nvim_lsp'.tsserver.setup{}
+"packadd nvim-lsp
+"lua require'nvim_lsp'.tsserver.setup{}
 
-nnoremap <silent> gd <cmd>lua  vim.lsp.buf.declaration()<CR>
-nnoremap <silent> gh <cmd>lua  vim.lsp.buf.hover()<CR>
-nnoremap <silent> <c-]> <cmd>lua  vim.lsp.buf.definition()<CR>
-nnoremap <silent> gD <cmd>lua  vim.lsp.buf.implementation()<CR>
-nnoremap <silent> ,t <cmd>lua  vim.lsp.buf.signature_help()<CR>
-nnoremap <silent> 1gD <cmd>lua  vim.lsp.buf.type_definition()<CR>
-nnoremap <silent> gr <cmd>lua  vim.lsp.buf.references()<CR>
+"nnoremap <silent> gd <cmd>lua  vim.lsp.buf.declaration()<CR>
+"nnoremap <silent> gh <cmd>lua  vim.lsp.buf.hover()<CR>
+"nnoremap <silent> <c-]> <cmd>lua  vim.lsp.buf.definition()<CR>
+"nnoremap <silent> gD <cmd>lua  vim.lsp.buf.implementation()<CR>
+"nnoremap <silent> ,t <cmd>lua  vim.lsp.buf.signature_help()<CR>
+"nnoremap <silent> 1gD <cmd>lua  vim.lsp.buf.type_definition()<CR>
+"nnoremap <silent> gr <cmd>lua  vim.lsp.buf.references()<CR>
 
 " Use LSP omni-completion in Typescript files.
-autocmd Filetype typescript setlocal omnifunc=v:lua.vim.lsp.omnifunc
+"autocmd Filetype typescript setlocal omnifunc=v:lua.vim.lsp.omnifunc
 "
 " GUI MODE
 "
