@@ -1,3 +1,11 @@
+# Dependencies
+* terminal [kitty](https://sw.kovidgoyal.net/kitty)
+* Shell [ZSH](http://zsh.sourceforge.net/)
+* ZSH config [OH-MY-ZSH](https://github.com/ohmyzsh/ohmyzs)
+* File manager [vifm](https://vifm.info/)
+
+
+
 # Installing dotfiles
 Full guide is here [Dotfiles in bare git repo](https://www.atlassian.com/git/tutorials/dotfiles)
 
@@ -31,9 +39,3 @@ config config --local status.showUntrackedFiles no
 
 # Color scheme
 Molokai or Oceanic Next
-
-# File manager
-[vifm](https://vifm.info/)
-
-# Terminal
-[kitty](https://sw.kovidgoyal.net/kitty)

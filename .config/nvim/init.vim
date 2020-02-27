@@ -68,10 +68,6 @@ nmap <C-j> :wincmd j<CR>
 nmap <C-k> :wincmd k<CR>
 nmap <C-l> :wincmd l<CR>
 
-" Open splits
-map vs :vsplit<cr>
-nmap hs :split<cr>
-
 " Terminal Mode
 autocmd TermOpen * startinsert " auto start terminal mode (type command)
 
