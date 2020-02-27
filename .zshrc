@@ -21,8 +21,6 @@ bindkey -v # emacs bindings, set to -v for vi bindings
 source $HOME/.zsh/aliases
 source $HOME/.zsh/path
 source $HOME/.zsh/fzf
+source $HOME/.zsh/.oh-my-zsh
 
-
-source /Users/stan.gurenkov/Library/Preferences/org.dystroy.broot/launcher/bash/br
-
-source /Users/stan/Library/Preferences/org.dystroy.broot/launcher/bash/br
+source /Users/$USER/Library/Preferences/org.dystroy.broot/launcher/bash/br
