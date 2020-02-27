@@ -15,7 +15,8 @@ syntax enable
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'tomasr/molokai'
+Plug 'tomasr/molokai' " color scheme
+Plug 'vifm/vifm.vim'  " vifm file manager
 call plug#end()
 
 " Disable arrow movement, set to resize panes
