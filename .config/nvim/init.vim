@@ -68,10 +68,6 @@ nmap <C-j> :wincmd j<CR>
 nmap <C-k> :wincmd k<CR>
 nmap <C-l> :wincmd l<CR>
 
-" Swap files out of the project root
-set backupdir=~/tmp/nvim/backup/
-set directory=~/tmp/nvim/swap/
-
 " Open splits
 map vs :vsplit<cr>
 nmap hs :split<cr>

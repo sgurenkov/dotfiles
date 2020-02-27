@@ -24,3 +24,5 @@ source $HOME/.zsh/fzf
 
 
 source /Users/stan.gurenkov/Library/Preferences/org.dystroy.broot/launcher/bash/br
+
+source /Users/stan/Library/Preferences/org.dystroy.broot/launcher/bash/br
