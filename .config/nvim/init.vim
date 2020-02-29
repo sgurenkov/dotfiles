@@ -16,6 +16,8 @@ syntax enable
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tomasr/molokai' " color scheme
+Plug 'junegunn/fzf', { 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
 Plug 'vifm/vifm.vim'  " vifm file manager
 call plug#end()
 
@@ -71,6 +73,19 @@ nmap <C-l> :wincmd l<CR>
 " Terminal Mode
 autocmd TermOpen * startinsert " auto start terminal mode (type command)
 
+" FZF
+" Mapping selecting mappings
+nmap <leader>fg :GFiles<CR>
+nmap <leader>fb :Buffers<CR>
+nmap <leader>ff :Files<CR>
+nmap <leader>fa :Ag<CR>
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+imap <c-x><c-l> <plug>(fzf-complete-line)
 
 " Language Server
 "packadd nvim-lsp
@@ -88,6 +103,5 @@ autocmd TermOpen * startinsert " auto start terminal mode (type command)
 "autocmd Filetype typescript setlocal omnifunc=v:lua.vim.lsp.omnifunc
 "
 " GUI MODE
-"
 set linespace=15
 echo "Here we go! Have a wanderful day! :)"

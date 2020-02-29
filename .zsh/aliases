@@ -36,3 +36,7 @@ alias -g L="|less"
 # Mnemonic: "[W]c"
 alias -g W="|wc -l"
 
+# Quick editing
+alias :ekitty='vim ~/.config/kitty/kitty.conf'
+alias :eshell='vim ~/.zshrc'
+alias :evim='vim ~/.config/nvim/init.vim'
