@@ -16,9 +16,10 @@ syntax enable
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tomasr/molokai' " color scheme
-Plug 'junegunn/fzf', { 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
-Plug 'vifm/vifm.vim'  " vifm file manager
+" Plug 'junegunn/fzf', { 'do': './install --bin' }
+" Plug 'junegunn/fzf.vim'
+" Plug 'vifm/vifm.vim'  " vifm file manager
+Plug 'jceb/vim-orgmode'  " orgmode
 call plug#end()
 
 " Disable arrow movement, set to resize panes

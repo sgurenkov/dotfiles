@@ -40,3 +40,6 @@ alias -g W="|wc -l"
 alias :ekitty='vim ~/.config/kitty/kitty.conf'
 alias :eshell='vim ~/.zshrc'
 alias :evim='vim ~/.config/nvim/init.vim'
+
+# JOB specific aliases
+alias chorus='cd ~/code/chorus'
